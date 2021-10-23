@@ -1,0 +1,8 @@
+{
+  "name": "asyncUtils",
+  "version": "1.0.0",
+  "description": "Async Utils for Humans",
+  "main": "index.js",
+  "author": "Jonathan Tushman <jtushman@gmail.com>",
+  "license": "MIT"
+}
