@@ -1,5 +1,7 @@
 # One-Way ➡️
 
+[![CI](https://github.com/qualaio/one-way/actions/workflows/continuous-integration-workflow.yml/badge.svg)](https://github.com/qualaio/one-way/actions/workflows/continuous-integration-workflow.yml)
+
 Super small library to add some syntax sugar for looping over arrays asynchronously
 
 feel free to just copy the 5 lines of code in your own util library
