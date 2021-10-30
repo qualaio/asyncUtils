@@ -7,6 +7,8 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - uses: actions/setup-node@v1
+        with:
+          node-version: '16'
       - run: yarn --frozen-lockfile --ignore-scripts
       - run: yarn run prettier:check
       - run: yarn run lint:check
@@ -37,5 +39,7 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - uses: actions/setup-node@v1
+        with:
+            node-version: '16'
       - run: yarn --frozen-lockfile --ignore-scripts
       - run: yarn build
