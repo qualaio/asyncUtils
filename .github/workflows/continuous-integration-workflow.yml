@@ -7,9 +7,9 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - uses: actions/setup-node@v1
-      - run: npm ci --ignore-scripts
-      - run: npm run prettier:check
-      - run: npm run lint:check
+      - run: yarn --frozen-lockfile --ignore-scripts
+      - run: yarn run prettier:check
+      - run: yarn run lint:check
   tests:
     name: Tests
     runs-on: ubuntu-latest
@@ -25,9 +25,9 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - run: node --version
         name: Check Node.js version
-      - run: npm ci --ignore-scripts
-      - run: npm run test:ci
-      - run: npm install codecov -g
+      - run: yarn --frozen-lockfile --ignore-scripts
+      - run: yarn run test:ci
+      - run: yarn add codecov -g
         if: ${{ matrix.node-version == '14.x' }}
       - run: codecov -f ./coverage/clover.xml -t ${{ secrets.CODECOV_TOKEN }}
         if: ${{ matrix.node-version == '14.x' }}
@@ -37,9 +37,5 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - uses: actions/setup-node@v1
-      - run: npm ci --ignore-scripts
-      - run: npm run build:es2015
-      - run: npm run build:esm5
-      - run: npm run build:cjs
-      - run: npm run build:umd
-      - run: npm run build:types
+      - run: yarn --frozen-lockfile --ignore-scripts
+      - run: yarn build
