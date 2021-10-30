@@ -4,5 +4,25 @@
   "description": "Async Utils for Humans",
   "main": "index.js",
   "author": "Jonathan Tushman <jtushman@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "devDependencies": {
+    "typescript": "^4.4.4",
+    "@types/jest": "^27.0.2",
+    "@types/node": "^16.11.4",
+    "jest": "^26.0.1",
+    "ts-jest": "^26.1.0"
+  },
+  "scripts": {
+    "build": "tsc",
+    "test": "jest --coverage --verbose",
+    "test:watch": "jest --watch",
+    "test:ci": "jest --runInBand --coverage --verbose"
+  }
 }
