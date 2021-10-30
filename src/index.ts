@@ -4,9 +4,9 @@
  * @param callback
  */
 export async function asyncForEach<I>(array: I[], callback: (item: I, idx: number) => Promise<void>): Promise<void> {
-    for (const item of array.keys()) {
-        await callback(array[item], item)
-    }
+  for (const item of array.keys()) {
+    await callback(array[item], item);
+  }
 }
 
 /**
@@ -15,5 +15,5 @@ export async function asyncForEach<I>(array: I[], callback: (item: I, idx: numbe
  * @param callback
  */
 export async function asyncTimes(count: number, callback: any) {
-    return asyncForEach(Array.from({ length: count }), callback)
+  return asyncForEach(Array.from({ length: count }), callback);
 }

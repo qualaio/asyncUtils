@@ -17,12 +17,30 @@
     "@types/jest": "^27.0.2",
     "@types/node": "^16.11.4",
     "jest": "^26.0.1",
-    "ts-jest": "^26.1.0"
+    "ts-jest": "^26.1.0",
+    "prettier": "^2.2.1",
+    "husky": "^4.3.8",
+    "lint-staged": "^11.2.6"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.md": [
+      "npm run prettier:fix"
+    ],
+    "*.ts": [
+      "npm run prettier:fix"
+    ]
   },
   "scripts": {
     "build": "tsc",
     "test": "jest --coverage --verbose",
     "test:watch": "jest --watch",
-    "test:ci": "jest --runInBand --coverage --verbose"
+    "test:ci": "jest --runInBand --coverage --verbose",
+    "prettier:fix": "prettier --write \"**/*.{ts,md}\"",
+    "prettier:check": "prettier --check \"**/*.{ts,md}\""
   }
 }
