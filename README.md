@@ -22,7 +22,14 @@ import { asyncForEach } from 'one-way';
 const orderedList = [1, 2, 3, 4, 5];
 let outputList: number[] = [];
 
+async function sleep(ms = 15_000) {
+  return new Promise(resolve => {
+    setTimeout(resolve, ms);
+  });
+}
+
 await asyncForEach(orderedList, async num => {
+  await sleep(100); // do something asyncronous
   // note this will have typescript goodness
   outputList.push(num);
 });
