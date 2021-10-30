@@ -35,3 +35,20 @@ await asyncForEach(orderedList, async num => {
 2. How many time have I google, how does one loop through a loop in serial with asynchronous code
 
 Our team using these methods have reduced tricky errors -- hopefull it can help you and your team as well.
+
+## Under the covers
+
+... there is soooo little code in this library we can list it here,
+if you do not want to add a dependency feel free just to copy the code:
+
+this is the main function
+
+```typescript
+export async function asyncForEach<I>(array: I[], callback: (item: I, idx: number) => Promise<void>): Promise<void> {
+  for (const item of array.keys()) {
+    await callback(array[item], item);
+  }
+}
+```
+
+or just look at the other helper functions here: [link](https://github.com/qualaio/one-way/blob/master/src/index.ts)
