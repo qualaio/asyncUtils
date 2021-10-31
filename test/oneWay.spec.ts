@@ -6,8 +6,8 @@ export async function sleep(ms = 15_000) {
   });
 }
 
-describe('asyncForEach', () => {
-  it('can loop over an array asynchronously', async () => {
+describe('oneWay', () => {
+  it('can loop over an array asynchronously serially', async () => {
     const orderedList = [1, 2, 3, 4, 5];
     let outputList: number[] = [];
 
